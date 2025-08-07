@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ovidio Biafore | Consultor y Coach Ejecutivo</title>
+  <meta name="description" content="Consultoría y coaching ejecutivo para organizaciones que buscan excelencia operacional, desarrollo de liderazgo y mejora continua.">
+  <!-- Typography: Fraunces (headings), Inter (body), Manrope (contact) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;600;700&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f5f7fb;
+      --card:#ffffff;
+      --primary:#0d3b66;
+      --primary-2:#134a8a;
+      --accent:#faa916;
+      --text:#0f172a;
+      --muted:#475569;
+      --ring: rgba(13,59,102,.10);
+      --ring-strong: rgba(13,59,102,.16);
+      --ink:#0b0b0b;
+      --wa:#25D366;
+      --li:#0A66C2;
+      --underline:#ffd479;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text)}
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(255,255,255,.94);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid #e8edf4
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    /* Refined OB logo */
+    .logo-badge{
+      position:relative;
+      width:40px;height:40px;border-radius:10px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      display:grid;place-items:center;color:#fff;
+      box-shadow:0 4px 12px var(--ring);
+      outline:1px solid rgba(255,255,255,.35);
+      outline-offset:-2px;
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .logo-badge:hover{ transform:translateY(-1px); box-shadow:0 8px 18px var(--ring-strong); }
+    .logo-in{
+      font-family:'Fraunces', serif;
+      font-weight:700;
+      font-size:17px;
+      letter-spacing:-.02em;
+      transform:translateY(1px);
+    }
+    .logo-text{font-weight:700}
+    .links{display:flex;align-items:center;gap:6px}
+    .links a{padding:10px 12px;text-decoration:none;color:var(--text);font-weight:600}
+    .links a:hover{color:var(--primary)}
+    /* Serious Mobile Menu */
+    .menu-btn{display:none;border:1px solid #e5e9f1;background:#fff;border-radius:10px;padding:8px 10px;font-weight:700}
+    .menu-btn svg{width:22px;height:22px;display:block}
+    .panel{display:none;position:fixed;inset:64px 0 0 0;background:#fff;border-top:1px solid #ecf0f6;box-shadow:0 8px 22px var(--ring-strong);}
+    .panel ul{list-style:none;margin:0;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+    .panel a{display:block;padding:12px 12px;border-radius:10px;text-decoration:none;color:#102a43;border:1px solid #eef2f8}
+    .panel a:hover{background:#f7f9fc}
+    /* HERO */
+    header{padding:56px 0 30px;background:radial-gradient(1200px 600px at 20% 0%, #e8f0fb, transparent);}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .hero h1{
+      font-family:'Fraunces',serif;
+      font-size:52px; line-height:1.06; margin:0; color:var(--primary);
+      letter-spacing:-.015em;
+    }
+    .hero p{font-size:18px;color:#334155;margin:14px 0 22px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 18px;border-radius:10px;border:1px solid #d7dbe3;background:#fff;color:var(--primary);font-weight:700;text-decoration:none;box-shadow:0 2px 6px var(--ring)}
+    .btn.primary{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 4px 10px var(--ring)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 8px 16px var(--ring-strong)}
+    .portrait-wrap{display:grid;place-items:center}
+    .portrait{width:260px;height:260px;border-radius:50%;object-fit:cover;box-shadow:0 20px 50px var(--ring);border:6px solid #fff}
+    /* SECTIONS */
+    section{padding:54px 0}
+    /* H2 with subtle hover underline */
+    h2{
+      font-family:'Fraunces',serif;
+      font-weight:700;
+      font-size:34px;
+      color:#0d3b66;
+      margin:0 0 16px;
+      letter-spacing:-.01em;
+      position:relative;
+      display:inline-block;
+    }
+    h2::after{
+      content:"";
+      position:absolute;left:0;bottom:-4px;height:8px;width:100%;
+      background:linear-gradient(90deg,var(--underline),transparent 70%);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .25s ease;
+      border-radius:6px;
+      opacity:.65;
+    }
+    h2:hover::after{ transform:scaleX(1); }
+    p{line-height:1.7}
+    .lead{font-size:18px;color:#374151}
+    /* GRID */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    /* CARDS */
+    .card{grid-column:span 6;background:var(--card);border:1px solid #eef0f4;border-radius:14px;padding:18px 16px;box-shadow:0 6px 16px var(--ring)}
+    .category .card{display:flex;gap:10px;align-items:flex-start}
+    .card h4{margin:8px 0 6px;font-size:18px;color:#0f172a}
+    .card p{margin:0;color:#4b5563}
+    /* ICONS */
+    .icon{width:48px;height:48px;border-radius:12px;display:inline-grid;place-items:center;background:#eef2ff;margin-right:10px;box-shadow:inset 0 0 0 1px #d8defe;flex:0 0 auto}
+    .icon svg{width:26px;height:26px;display:block}
+    .icon .a{stroke:#0d3b66;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;fill:none}
+    .icon .b{fill:#0d3b66;opacity:.08}
+    /* CATEGORY BLOCKS */
+    .category{grid-column:span 12;background:#fff;border:1px solid #eef0f4;border-radius:16px;padding:18px 18px 8px;box-shadow:0 8px 20px var(--ring)}
+    .cat-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+    .cat-title{display:flex;align-items:center;gap:14px}
+    .cat-title .badge{width:76px;height:76px;border-radius:16px;display:grid;place-items:center;background:#e9eef8;box-shadow:inset 0 0 0 1px #dde5f3;overflow:hidden}
+    .cat-title .badge img{width:100%;height:100%;object-fit:contain;padding:8px;display:block}
+    .cat-title h3{margin:0;font-size:24px;color:#0d3b66;font-family:'Fraunces',serif;letter-spacing:-.01em}
+    /* QUOTE */
+    .quote{margin:24px 0;background:#fff;border:1px dashed #e5e7eb;border-left:4px solid #faa916;padding:16px 18px;border-radius:12px;color:#475569;font-style:italic;transition:opacity .35s ease}
+    /* TESTIMONIOS */
+    .testi{grid-column:span 4;background:var(--card);border:1px solid #eef0f4;border-radius:14px;padding:16px;box-shadow:0 6px 16px var(--ring)}
+    .testi .who{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .avatar{
+      width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+      background:#eaf0f6;border:1px solid #d7e2ef;color:#0d3b66;
+    }
+    .avatar svg{width:22px;height:22px;display:block}
+    .rating{font-size:14px;color:#f59e0b}
+    /* BLOG */
+    .post{grid-column:span 4;background:var(--card);border:1px solid #eef0f4;border-radius:14px;overflow:hidden;box-shadow:0 6px 16px var(--ring)}
+    .post img{width:100%;height:180px;object-fit:cover}
+    .post .p{padding:12px 14px}
+    .post .p h4{margin:0;font-family:'Fraunces',serif;letter-spacing:-.01em}
+    .post .p a{text-decoration:none;color:#0d3b66;font-weight:800}
+    .post .p a:hover{text-decoration:underline}
+    /* CONTACTO */
+    .contacto{background:linear-gradient(180deg,#ffffff,#f5f7fb);border-top:2px solid #eef0f4}
+    .contact-cards .card{grid-column:span 4}
+    .contact-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .clink{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;border:1px solid #e5e7eb;background:#fff;text-decoration:none;font-weight:700;box-shadow:0 2px 6px var(--ring)}
+    .clink svg{width:22px;height:22px;display:block}
+    .clink img{width:22px;height:22px;display:block}
+    .clink.wa{color:#25D366;border-color:rgba(37,211,102,.4)}
+    .clink.li{color:#0A66C2;border-color:rgba(10,102,194,.35)}
+    .clink:hover{transform:translateY(-1px);box-shadow:0 8px 14px var(--ring-strong)}
+    /* Emphasized contact text: Manrope */
+    .contact-emph{
+      font-family:'Manrope', Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size:20px;
+      letter-spacing:.005em;
+      color:#0d3b66;
+      text-decoration:none;
+      border-bottom:2px solid rgba(13,59,102,.18);
+      padding-bottom:2px;
+      transition:border-color .2s ease, color .2s ease, transform .1s ease;
+      font-variant-numeric: tabular-nums;
+    }
+    .contact-emph:hover{
+      color:#134a8a;
+      border-color:rgba(19,74,138,.4);
+      transform:translateY(-1px);
+    }
+    /* FORM STYLES */
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    form input, form textarea{
+      width:100%;
+      padding:12px;
+      border:2px solid var(--ink);
+      border-radius:10px;
+      font-size:15px;
+      background:#fff;
+      outline:none;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    form input::placeholder, form textarea::placeholder{color:#6b7280}
+    form textarea{grid-column:span 2;min-height:120px}
+    form input:focus, form textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(13,59,102,.15);
+    }
+    form button{grid-column:span 2}
+    /* FOOTER */
+    footer{padding:26px 0;background:var(--primary);color:#fff;text-align:center;margin-top:10px;box-shadow:0 -4px 12px var(--ring)}
+    .footer-tagline{margin-top:8px;opacity:.92;font-size:14px;line-height:1.5;max-width:900px;margin-left:auto;margin-right:auto}
+    /* RESPONSIVE */
+    @media (max-width: 1024px){
+      .cat-title .badge{width:60px;height:60px}
+    }
+    @media (max-width: 900px){
+      .links{display:none}
+      .menu-btn{display:inline-flex;align-items:center;gap:8px}
+      .nav-inner{height:58px}
+      .logo-badge{width:34px;height:34px;border-radius:9px}
+      .logo-in{font-size:15px}
+      .panel{display:none}
+      .panel.open{display:block}
+      .hero{grid-template-columns:1fr}
+      .portrait{width:200px;height:200px}
+      .card,.testi,.post,.contact-cards .card{grid-column:span 12}
+      .category .card{grid-column:span 12}
+      .contact-row{flex-direction:column;align-items:flex-start}
+      form{grid-template-columns:1fr}
+      form textarea, form button{grid-column:span 1}
+      .hero h1{font-size:38px}
+      h2{font-size:28px}
+      section{padding:46px 0}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .btn:hover, .clink:hover{transform:none;box-shadow:none}
+      .logo-badge{transition:none}
+    }
+    /* Mission block */
+    .mission{
+      background:#fff;
+      border:1px solid #e6eaf0;
+      border-left:4px solid var(--accent);
+      border-radius:14px;
+      padding:16px 18px;
+      box-shadow:0 8px 20px var(--ring);
+      margin-top:10px;
+    }
+    .mission .title{
+      display:flex;align-items:center;gap:8px;
+      font-family:'Fraunces',serif;color:#0d3b66;margin:0 0 6px;
+    }
+    .mission .title svg{width:18px;height:18px;color:#faa916;flex:0 0 auto}
+    .mission p{margin:.2em 0;color:#334155}
+  
+/* === Mobile refinements for Servicios (Consultoría & Coaching) === */
+@media (max-width: 900px){
+  /* Stack category header and make CTA full-width for clean wrapping */
+  #servicios .cat-head{flex-direction:column;align-items:stretch;gap:10px}
+  #servicios .cat-head .btn{width:100%; text-align:center}
+
+  /* Ensure badges are visible and proportional */
+  #servicios .cat-title .badge{width:64px;height:64px}
+
+  /* One-column cards in both categories; tighter yet comfy spacing */
+  #consultoria .grid, #coaching .grid{grid-template-columns:1fr;gap:12px}
+
+  /* Card layout: bigger tappable icon, safe paddings, no overflow */
+  #consultoria .card, #coaching .card{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:14px 12px;
+    min-width:0;
+  }
+  #consultoria .card > div:last-child, #coaching .card > div:last-child{min-width:0}
+
+  /* Icon sizing made consistent and readable */
+  #consultoria .icon, #coaching .icon{
+    width:56px;height:56px;border-radius:14px;
+    background:#eef2ff;
+    box-shadow:inset 0 0 0 1px #d8defe;
+    flex:0 0 auto;
+  }
+  #consultoria .icon svg, #coaching .icon svg{width:30px;height:30px}
+
+  /* Headings and copy for small screens */
+  #consultoria h4, #coaching h4{font-size:17px;margin:6px 0 4px}
+  #consultoria p, #coaching p{font-size:15px;line-height:1.6}
+
+  /* Prevent any horizontal scroll caused by long words */
+  #servicios .category, #servicios .card, #servicios .cat-title h3{min-width:0;overflow-wrap:anywhere;word-break:break-word}
+}
+
+
+/* --- Fix: WhatsApp logo visibility (desktop + mobile) --- */
+.clink img{width:24px;height:24px;display:block;object-fit:contain;flex:0 0 auto}
+@media (max-width:900px){
+  .clink img{width:26px;height:26px}
+}
+
+
+/* --- Safety: never hide contact icons on mobile --- */
+@media (max-width:900px){
+  .contact-links .clink img, .contact-links .clink svg{visibility:visible;opacity:1}
+}
+
+
+/* === Mobile menu backdrop & body lock === */
+.backdrop{
+  position:fixed; inset:64px 0 0 0;  /* below sticky nav */
+  background:rgba(3, 6, 23, .28);
+  opacity:0; pointer-events:none;
+  transition:opacity .2s ease;
+}
+.backdrop.show{ opacity:1; pointer-events:auto; }
+body.menu-open{ overflow:hidden; }
+
+@media (max-width:900px){
+  .backdrop{ inset:58px 0 0 0; } /* match mobile nav height */
+}
+
+
+/* === Mobile Drawer Menu (Documents-friendly) === */
+.nav{z-index: 1500;}
+/* Hide old 'panel' defaults; we'll restyle #mobilePanel as drawer */
+.panel{display:none !important;}
+#mobilePanel{
+  position: fixed; top:0; right:0; bottom:0; left:auto;
+  width: 82%; max-width: 360px;
+  background: #ffffff;
+  border-left: 1px solid #ecf0f6;
+  box-shadow: -12px 0 24px rgba(3,6,23,.18);
+  transform: translateX(100%);
+  transition: transform .25s ease;
+  z-index: 1600;
+  display: block; /* keep in DOM */
+  padding: 16px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#mobilePanel.open{ transform: translateX(0); }
+#mobilePanel ul{ list-style:none; margin: 10px 0 0; padding:0; display:flex; flex-direction:column; gap:8px; }
+#mobilePanel a{
+  display:block; padding:14px 12px; border-radius:12px;
+  text-decoration:none; color:#0f172a; border:1px solid #eef2f8;
+  font-weight:700;
+}
+#mobilePanel a:hover{ background:#f7f9fc; }
+#mobilePanel .close-drawer{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:10px;
+  border:1px solid #e5e9f1; background:#fff; font-weight:800;
+}
+#mobilePanel .head{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+
+/* Overlay */
+#menuBackdrop{
+  position: fixed; inset: 0;
+  background: rgba(3, 6, 23, .32);
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 1550;
+}
+#menuBackdrop.show{ opacity:1; pointer-events:auto; }
+
+/* Lock scroll when menu open */
+body.menu-open{ overflow: hidden; }
+
+@media (min-width: 901px){
+  /* Ensure drawer never appears on desktop */
+  #menuBackdrop{ display:none !important; }
+  #mobilePanel{ transform: translateX(100%) !important; }
+}
+
+
+/* === Full-screen drawer + hard scroll lock === */
+#mobilePanel{
+  position: fixed; top:0; right:0; bottom:0; left:0;
+  width: 100%; max-width: none;
+  background: #ffffff;
+  border-left: none;
+  box-shadow: none;
+  transform: translateX(100%);
+  transition: transform .28s ease;
+  z-index: 1600;
+  display: block;
+  padding: 18px 16px 24px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#mobilePanel.open{ transform: translateX(0); }
+#mobilePanel .head{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+#mobilePanel .close-drawer{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:40px; height:40px; border-radius:12px;
+  border:1px solid #e5e9f1; background:#fff; font-weight:800;
+}
+#mobilePanel ul{ list-style:none; margin: 12px 0 0; padding:0; display:flex; flex-direction:column; gap:10px; }
+#mobilePanel a{
+  display:block; padding:16px 14px; border-radius:14px;
+  text-decoration:none; color:#0f172a; border:1px solid #eaf0f7;
+  font-weight:800; font-size:16px;
+}
+#mobilePanel a:hover{ background:#f7f9fc; }
+
+/* Overlay keeps the fade feel even if drawer es full-screen */
+#menuBackdrop{
+  position: fixed; inset: 0;
+  background: rgba(3, 6, 23, .32);
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 1550;
+}
+#menuBackdrop.show{ opacity:1; pointer-events:auto; }
+
+/* HARD LOCK: prevent any background scroll while menu open */
+html.menu-open, body.menu-open{ height:100%; overflow:hidden; }
+body.menu-open{ position: fixed; width:100%; }
+
+
+/* === Drawer refinements: partial width, full height, improved close button === */
+#mobilePanel{
+  left: auto;                /* not full-width */
+  width: 82%;
+  max-width: 420px;
+  transform: translateX(100%);
+  padding: 18px 16px 24px;
+  border-left: 1px solid #ecf0f6;
+  box-shadow: -12px 0 24px rgba(3,6,23,.18);
+}
+#mobilePanel.open{ transform: translateX(0); }
+#mobilePanel .head{ display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+#mobilePanel .close-drawer{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:12px;
+  border:1px solid #e5e9f1; background:#fff; font-weight:800;
+  transition: box-shadow .15s ease, transform .1s ease;
+}
+#mobilePanel .close-drawer:focus-visible{
+  outline:none;
+  box-shadow: 0 0 0 3px rgba(13,59,102,.28);
+}
+#mobilePanel .close-drawer:hover{ transform: translateY(-1px); }
+#mobilePanel .close-drawer svg{ width:22px; height:22px; display:block; }
+
+/* Lighter overlay so el logo OB y texto quedan visibles detrás */
+#menuBackdrop{ background: rgba(3, 6, 23, .18); }
+
+/* Drawer links */
+#mobilePanel a{
+  display:block; padding:16px 14px; border-radius:14px;
+  text-decoration:none; color:#0f172a; border:1px solid #eaf0f7;
+  font-weight:800; font-size:16px;
+}
+#mobilePanel a:hover{ background:#f7f9fc; }
+
+
+/* === Drawer above everything + interaction & scroll guards === */
+.nav{ z-index: 1800; } /* keep nav high, but drawer higher */
+#mobilePanel{
+  z-index: 3000;              /* above all */
+  height: 100vh;              /* full vertical */
+  overscroll-behavior: contain;
+  pointer-events: auto;
+}
+#menuBackdrop{
+  z-index: 2950;              /* just below drawer, above site */
+  pointer-events: none;       /* backdrop click handled by JS when show class toggled */
+}
+#menuBackdrop.show{ pointer-events: auto; }
+
+/* Avoid underlying clicks while open */
+html.menu-open, body.menu-open{
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+
+
+/* === Scroll guard behind drawer (absorbs gestures) === */
+#scrollGuard{
+  position: fixed; inset: 0;
+  z-index: 2975;           /* backdrop 2950, guard 2975, drawer 3000 */
+  background: transparent; /* invisible, only to capture input */
+  pointer-events: none;
+  touch-action: none;
+}
+#scrollGuard.show{ pointer-events: auto; }
+
+/* === Drawer visual upgrades === */
+#mobilePanel{
+  background: #ffffff;
+  backdrop-filter: saturate(120%) blur(2px);
+  border-left: 1px solid #ecf0f6;
+  box-shadow: -16px 0 36px rgba(3,6,23,.22);
+}
+#mobilePanel .head{
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eef2f7;
+  margin-bottom: 8px;
+}
+/* Tiny OB badge inside head (left), keep X at right */
+#mobilePanel .head .ob-mini{
+  display:inline-grid; place-items:center;
+  width:32px; height:32px; border-radius:9px;
+  background: linear-gradient(135deg,#0d3b66,#134a8a);
+  color:#fff; font-family: 'Fraunces', serif; font-weight:700; font-size:13px;
+  box-shadow: 0 4px 10px rgba(13,59,102,.18);
+}
+
+/* Menu list styles */
+#mobilePanel .menu-list{ list-style:none; margin:8px 0 0; padding:0; display:flex; flex-direction:column; gap:10px; }
+#mobilePanel .menu-list li{ opacity:0; transform: translateX(10px); }
+#mobilePanel.open .menu-list li{ animation: drawerItem .22s ease forwards; }
+#mobilePanel.open .menu-list li:nth-child(1){ animation-delay:.00s }
+#mobilePanel.open .menu-list li:nth-child(2){ animation-delay:.03s }
+#mobilePanel.open .menu-list li:nth-child(3){ animation-delay:.06s }
+#mobilePanel.open .menu-list li:nth-child(4){ animation-delay:.09s }
+#mobilePanel.open .menu-list li:nth-child(5){ animation-delay:.12s }
+
+@keyframes drawerItem{
+  to{ opacity:1; transform: translateX(0); }
+}
+
+#mobilePanel .menu-list a{
+  display:flex; align-items:center; gap:12px;
+  padding:16px 14px; border-radius:14px;
+  text-decoration:none; color:#0f172a;
+  border:1px solid #edf1f7;
+  background: linear-gradient(180deg,#ffffff,#f9fbff);
+  box-shadow: 0 2px 8px rgba(2,6,23,.05);
+  font-weight:800; font-size:16px;
+}
+#mobilePanel .menu-list a:hover{ background:#f7f9fc; transform: translateY(-1px); }
+#mobilePanel .menu-list a:active{ transform: translateY(0); }
+#mobilePanel .menu-list a svg{ width:22px; height:22px; flex:0 0 auto; display:block; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  #mobilePanel .menu-list li{ opacity:1; transform:none; animation:none; }
+  #mobilePanel .menu-list a:hover{ transform:none; }
+}
+
+
+/* === Desktop rules: no hamburger, no drawer/backdrop === */
+@media (min-width:901px){
+  .menu-btn{ display:none !important; }
+  #mobilePanel{ transform: translateX(100%) !important; }
+  #menuBackdrop, #scrollGuard{ display:none !important; }
+  .links{ display:flex !important; }
+}
+
+
+/* Anchor offset so sticky nav no tape sections */
+section{ scroll-margin-top: 76px; }
+/* Más aire debajo de "¿Quién soy?" para separar de Misión */
+#sobre-mi{ padding-bottom: 84px; }
+
+
+/* === Category cards (Consultoría / Coaching) visual refresh === */
+.category{
+  background:#fff;
+  border:1px solid rgba(2,6,23,.06);
+  border-radius:16px;
+  box-shadow:0 10px 24px rgba(2,6,23,.06);
+}
+.cat-head{
+  border-bottom:1px solid rgba(2,6,23,.06);
+  padding-bottom:10px;
+}
+.cat-title .badge{
+  background:#f2f6ff;
+  box-shadow:inset 0 0 0 1px #e3ebff;
+}
+
+
+/* Unify social button icons sizing */
+.clink img, .clink svg{ width:22px; height:22px; display:block; flex:0 0 auto; }
+
+</style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo" aria-label="Inicio">
+        <span class="logo-badge">
+          <span class="logo-in">OB</span>
+        </span>
+        <span class="logo-text">Ovidio Biafore</span>
+      </a>
+      <div class="links" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#blog">Historias</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <!-- Mobile Panel -->
+    <div id="mobilePanel" role="dialog" aria-modal="true" aria-label="Menú" tabindex="-1">  <div class="head">
+  <span class="ob-mini">OB</span>
+  <button class="close-drawer" id="closeDrawerBtn" aria-label="Cerrar menú">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6 6l12 12M18 6l-12 12" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+</div>  
+<ul id="mobileMenuList" class="menu-list">
+  <li><a href="#sobre-mi" aria-label="Ir a Sobre mí">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm6 8H6a2 2 0 0 1-2-2 6 6 0 0 1 12 0 2 2 0 0 1-2 2Z" fill="#0d3b66"/></svg>
+    Sobre mí
+  </a></li>
+  <li><a href="#servicios" aria-label="Ir a Servicios">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v4H4zM4 11h16v7H4z" fill="#0d3b66"/><path d="M7 8h4M7 15h10" stroke="#134a8a" stroke-width="2" stroke-linecap="round"/></svg>
+    Servicios
+  </a></li>
+  <li><a href="#testimonios" aria-label="Ir a Testimonios">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 6h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-5l-4 3v-3H7a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" fill="#0d3b66"/></svg>
+    Testimonios
+  </a></li>
+  <li><a href="#blog" aria-label="Ir a Historias">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h9a4 4 0 0 1 4 4v12H9a4 4 0 0 1-4-4V4Z" fill="#0d3b66"/><path d="M9 8h8M9 12h8" stroke="#134a8a" stroke-width="2" stroke-linecap="round"/></svg>
+    Historias
+  </a></li>
+  <li><a href="#contacto" aria-label="Ir a Contacto">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" fill="#0d3b66"/><path d="M4 8l8 5 8-5" stroke="#134a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Contacto
+  </a></li>
+</ul>
+</div>
+<div class="backdrop" id="menuBackdrop" aria-hidden="true"></div>
+<div id="scrollGuard" aria-hidden="true"></div>
+</nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="container hero">
+      <div>
+        <h1>Consultor &amp; Coach Ejecutivo</h1>
+        <p class="lead">Más de 30 años liderando equipos y operaciones. Ayudo a directivos y organizaciones a ejecutar mejor: foco, procesos y resultados.</p>
+        <div id="quote" class="quote" aria-live="polite"></div>
+        <div class="cta">
+          <a class="btn primary" href="#contacto">Trabajemos juntos</a>
+          <a class="btn" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <img class="portrait" src="foto_ovidio-biafore.png" alt="Ovidio Biafore" loading="lazy">
+      </div>
+    </div>
+  </header>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi">
+    <div class="container">
+      <h2>¿Quién soy?</h2>
+      <p class="lead">Ex director de la filial local de una compañía química global. Entrenado en el exterior, integré equipos regionales y globales diseñando estrategias y liderando operaciones comerciales, administrativas y financieras.</p>
+      <p>Conduje equipos en funciones operativas y comerciales; conozco auditorías, control interno y mejora continua. Traigo una mirada integral y práctica para impulsar organizaciones reales con problemas reales.</p>
+
+      <!-- MISION (with icon) -->
+      <div class="mission" id="mision">
+        <h3 class="title">
+          <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
+            <path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm3.9 6.1-2.1 6.3-6.3 2.1 2.1-6.3 6.3-2.1zM12 12l-2.2 2.2L12 12z"></path>
+          </svg>
+          Misión
+        </h3>
+        <p>Colaborar con organizaciones de negocios para la gestión y el desarrollo de sus operaciones, equipos y talentos.</p>
+        <p>Implementación de herramientas orientadas a la medición de resultados, la excelencia operacional y la mejora continua.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <h2>Servicios</h2>
+      <p class="lead">Dos frentes que se complementan: <strong>Consultoría en Gestión</strong> para ordenar y escalar, y <strong>Coaching Ejecutivo</strong> para desarrollar a las personas y los equipos.</p>
+
+      <div class="grid">
+        <!-- Consultoría en Gestión -->
+        <div class="category" id="consultoria">
+          <div class="cat-head">
+            <div class="cat-title">
+              <div class="badge" title="Consultoría">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBiStBK64a06Q3zTt17rSkZpF8oaG7dOR1JQ&s" alt="Consulting logo">
+              </div>
+              <h3>Consultoría en Gestión</h3>
+            </div>
+            <a class="btn" href="#contacto">Ver más información</a>
+          </div>
+          <div class="grid">
+            <!-- Gestión del Negocio -->
+            <div class="card" style="grid-column:span 6;">
+              <div class="icon" title="Gestión del Negocio">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect class="a" x="3.5" y="7" width="17" height="11" rx="2.2"></rect>
+                  <path class="a" d="M8 7V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1"></path>
+                  <path class="a" d="M7 15l3-3 2 2 5-5"></path>
+                  <circle class="b" cx="6.5" cy="16.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <div>
+                <h4>Gestión del Negocio</h4>
+                <p>Planeamiento, presupuestos, segmentación, enfoque al cliente y negociación.</p>
+              </div>
+            </div>
+            <!-- Excelencia Operacional -->
+            <div class="card" style="grid-column:span 6;">
+              <div class="icon" title="Excelencia Operacional">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="a" d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"></path>
+                  <path class="a" d="M9.2 12.5l2.2 2.2 4.1-4.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4>Excelencia Operacional</h4>
+                <p>Procesos, proyectos y mejora continua con estándares claros y auditorías simples.</p>
+              </div>
+            </div>
+            <!-- Control de Gestión -->
+            <div class="card" style="grid-column:span 6;">
+              <div class="icon" title="Control de Gestión">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path class="a" d="M4 15a8 8 0 0 1 16 0"></path>
+                  <path class="a" d="M12 15l3-5"></path>
+                  <circle class="a" cx="12" cy="15" r="1"></circle>
+                  <path class="a" d="M7 15h.01M17 15h.01M12 9h.01"></path>
+                </svg>
+              </div>
+              <div>
+                <h4>Control de Gestión</h4>
+                <p>Métricas, flujo de fondos, riesgos e inversiones para decidir con datos.</p>
+              </div>
+            </div>
+            <!-- Recursos Humanos -->
+            <div class="card" style="grid-column:span 6;">
+              <div class="icon" title="Recursos Humanos">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle class="a" cx="8" cy="8.5" r="2.5"></circle>
+                  <circle class="a" cx="16" cy="8.5" r="2.5"></circle>
+                  <path class="a" d="M3.5 18a5.5 5.5 0 0 1 9 0"></path>
+                  <path class="a" d="M11.5 18a5.5 5.5 0 0 1 9-3.7"></path>
+                  <path class="a" d="M14.2 14.8l1.9 1.9 3-3"></path>
+                </svg>
+              </div>
+              <div>
+                <h4>Recursos Humanos</h4>
+                <p>Objetivos, feedback, gestión del desempeño y desarrollo de talento.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coaching Ejecutivo -->
+        <div class="category" id="coaching">
+          <div class="cat-head">
+            <div class="cat-title">
+              <div class="badge" title="Coaching">
+                <img src="https://static.vecteezy.com/system/resources/previews/002/133/089/non_2x/coaching-rgb-color-icon-vector.jpg" alt="Coaching logo">
+              </div>
+              <h3>Coaching Ejecutivo</h3>
+            </div>
+            <a class="btn" href="#contacto">Ver programas y enfoque</a>
+          </div>
+          <div class="grid">
+            <!-- Desarrollo Individual -->
+            <div class="card">
+              <div class="icon" title="Desarrollo Individual">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle class="a" cx="12" cy="7.5" r="3"></circle>
+                  <path class="a" d="M5 20a7 7 0 0 1 14 0"></path>
+                  <path class="a" d="M12 12l5-5m0 0h-4m4 0v4"></path>
+                </svg>
+              </div>
+              <div>
+                <h4>Desarrollo Individual</h4>
+                <p>Autoconocimiento, foco, comunicación y hábitos de alto desempeño.</p>
+              </div>
+            </div>
+            <!-- Desarrollo en Equipos -->
+            <div class="card">
+              <div class="icon" title="Desarrollo en Equipos">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle class="a" cx="8" cy="8.5" r="2.4"></circle>
+                  <circle class="a" cx="16" cy="8.5" r="2.4"></circle>
+                  <circle class="a" cx="12" cy="12.5" r="2.3"></circle>
+                  <path class="a" d="M4.5 20a5.8 5.8 0 0 1 7.5-3m7.5 3a5.8 5.8 0 0 0-7.5-3"></path>
+                  <circle class="b" cx="12" cy="12.5" r="3.3"></circle>
+                </svg>
+              </div>
+              <div>
+                <h4>Desarrollo en Equipos</h4>
+                <p>Objetivos compartidos, decisiones claras y rituales que mantienen el ritmo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <div class="container">
+      <h2>Testimonios</h2>
+      <div class="grid">
+        <div class="testi">
+          <div class="who">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <circle cx="12" cy="8" r="4" fill="currentColor" opacity=".9"></circle>
+                <path d="M4 21c0-4.2 3.3-7 8-7s8 2.8 8 7" fill="currentColor" opacity=".6"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Gerente General</strong><div class="rating">★★★★★</div>
+            </div>
+          </div>
+          “Pasamos de diagnósticos eternos a un plan claro con métricas. El equipo volvió a moverse en la misma dirección.”
+        </div>
+        <div class="testi">
+          <div class="who">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <circle cx="12" cy="8" r="4" fill="currentColor" opacity=".9"></circle>
+                <path d="M4 21c0-4.2 3.3-7 8-7s8 2.8 8 7" fill="currentColor" opacity=".6"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Directora Comercial</strong><div class="rating">★★★★★</div>
+            </div>
+          </div>
+          “Su mirada operativa + humana nos ayudó a ordenar procesos sin perder agilidad.”
+        </div>
+        <div class="testi">
+          <div class="who">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <circle cx="12" cy="8" r="4" fill="currentColor" opacity=".9"></circle>
+                <path d="M4 21c0-4.2 3.3-7 8-7s8 2.8 8 7" fill="currentColor" opacity=".6"></path>
+              </svg>
+            </div>
+            <div>
+              <strong>Head de Operaciones</strong><div class="rating">★★★★★</div>
+            </div>
+          </div>
+          “Coaching directo, cero humo. Salimos de cada sesión con decisiones y dueños claros.”
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG (solo foto + título con link a páginas) -->
+  <section id="blog">
+    <div class="container">
+      <h2>Historias de Coaching</h2>
+      <p class="lead">Casos reales. Hacé clic en el título para leer el detalle.</p>
+      <div class="grid">
+        <article class="post">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="CEO PyME logística">
+          <div class="p">
+            <h4><a href="historia-ceo-logistica.html" target="_blank" rel="noopener">CEO PyME logística: agenda estratégica en 90 días</a></h4>
+          </div>
+        </article>
+        <article class="post">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Squad Comercial SaaS">
+          <div class="p">
+            <h4><a href="historia-squad-saas.html" target="_blank" rel="noopener">Squad Comercial SaaS: cadencia de decisión</a></h4>
+          </div>
+        </article>
+        <article class="post">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Directora de Operaciones">
+          <div class="p">
+            <h4><a href="historia-directora-operaciones.html" target="_blank" rel="noopener">Directora de Operaciones: feedback que no quema</a></h4>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <div class="grid contact-cards">
+        <div class="card">
+          <h4>Email</h4>
+          <p><a class="contact-emph" href="mailto:ovidio.biafore@outlook.com">ovidio.biafore@outlook.com</a></p>
+        </div>
+        <div class="card">
+          <h4>Teléfono</h4>
+          <div class="contact-row">
+            <p style="margin:0;"><a class="contact-emph" href="tel:+541144726606">+54&nbsp;11&nbsp;4472&nbsp;6606</a></p>
+          </div>
+          <div class="contact-links"><div style="font-size:13px;color:#64748b;margin-bottom:4px;">También por WhatsApp</div>
+            <a class="clink wa" href="https://wa.me/5491144726606" target="_blank" rel="noopener" title="WhatsApp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Logo de WhatsApp">
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>LinkedIn</h4>
+          <p><a class="contact-emph" href="https://www.linkedin.com/in/ovidio-biafore-9a554a199/" target="_blank" rel="noopener">Perfil Profesional</a></p>
+          <div class="contact-links" style="margin-top:6px;">
+            <a class="clink li" href="https://www.linkedin.com/in/ovidio-biafore-9a554a199/" target="_blank" rel="noopener" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.66-1.85 3.41-1.85 3.65 0 4.33 2.4 4.33 5.52v6.22ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Agenda una llamada</h4>
+          <p>Coordinemos 30' para entender tu contexto y armar un plan.</p>
+        </div>
+      </div>
+
+      <form>
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <textarea name="mensaje" placeholder="Contame en 2 líneas tu objetivo principal" required></textarea>
+        <button class="btn primary" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <small>© 2025 Ovidio Biafore — Consultor y Coach Ejecutivo</small>
+      <div class="footer-tagline">
+        Colaborar con organizaciones de negocios para la gestión y el desarrollo de sus operaciones, equipos y talentos. Implementación de herramientas orientadas a la medición de resultados, la excelencia operacional y la mejora continua.
+      </div>
+    </div>
+  </footer>
+
+  
+<script>
+  // ===== Safer mobile menu (no hangs) =====
+  const menuBtn = document.getElementById('menuBtn');
+  const panel = document.getElementById('mobilePanel');
+  const mobileLinks = document.getElementById('mobileMenuList');
+  let menuOpen = false;
+
+  function openMenu(){
+    if(!panel) return;
+    panel.classList.add('open');
+    menuBtn?.setAttribute('aria-expanded','true');
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    menuOpen = true;
+  }
+  function closeMenu(){
+    if(!panel) return;
+    panel.classList.remove('open');
+    menuBtn?.setAttribute('aria-expanded','false');
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    menuOpen = false;
+  }
+
+  menuBtn?.addEventListener('click', ()=>{
+    menuOpen ? closeMenu() : openMenu();
+  });
+
+  // Close on ESC
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+
+  // Close and jump to anchors (manual scroll with offset for sticky nav)
+  (function(){
+    const nav = document.querySelector('.nav');
+    const getTop = (el)=>{
+      const rect = el.getBoundingClientRect();
+      const y = rect.top + (window.pageYOffset || document.documentElement.scrollTop || 0);
+      const offset = nav ? nav.offsetHeight : 0;
+      return Math.max(0, y - offset - 8);
+    };
+    if(mobileLinks){
+      mobileLinks.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (ev)=>{
+          const target = a.getAttribute('href');
+          if(!target || target.charAt(0) !== '#') return;
+          ev.preventDefault();
+          const el = document.querySelector(target);
+          closeMenu();
+          setTimeout(()=>{
+            if(el){
+              try{ window.scrollTo({ top: getTop(el), behavior:'auto' }); }
+              catch(_){ window.scrollTo(0, getTop(el)); }
+              if(location.hash !== target){ location.hash = target; }
+            }else{
+              location.hash = target;
+            }
+          }, 120);
+        });
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
